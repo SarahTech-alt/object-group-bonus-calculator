@@ -1,3 +1,11 @@
+// $(document).ready(readyNow)
+// function readyNow(){
+//  let el = $('#employeeSalaries');
+//  el.empty();
+//  el.append(employeeSalary)
+// }
+
+
 const employees = [
   {
     name: 'Atticus',
@@ -98,7 +106,11 @@ function calculateAndAddBonusInformation(array) {
     if (item.bonusPercentage < 0) {
       item.bonusPercentage = 0;
     }
-  item.totalBonus = "$" + (item.annualSalary * item.bonusPercentage);
+  item.annualSalary = Number(item.annualSalary);
+  item.totalBonus = item.annualSalary * item.bonusPercentage;
+  item.totalCompensation = item.annualSalary + item.totalBonus;
+  
+
   } return array
 }
 
