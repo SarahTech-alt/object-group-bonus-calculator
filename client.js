@@ -40,7 +40,7 @@ const employees = [
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
-console.log( employees );
+console.log(employees);
 
 
 /**
@@ -65,32 +65,44 @@ console.log( employees );
 * Add `bonusPercentage`, `totalCompensation`, `totalBonus` to * employee array
 
  */
- 
-function calculateAndAddBonusInformation( array ){
+const maxBonus = .13;
+
+
+function calculateAndAddBonusInformation(array) {
   for (let item of array) {
-    let bonusPercentage = item.bonusPercentage;
-    let totalCompensation = item.totalCompensation;
-    let totalBonus = item.totalBonus
+    // bonusPercentage = item.bonusPercentage;
+    // totalCompensation = item.totalCompensation;
+    // totalBonus = item.totalBonus;
     console.log(item.employeeNumber);
+    if (item.reviewRating < 2) {
+      item.bonusPercentage = 0;
     }
-    if (item.reviewRating < 2){
-      bonusPercentage = 0;
+    if (item.reviewRating === 3) {
+      item.bonusPercentage = 0.04;
     }
-    else if (item.reviewRating === 3){
-      bonusPercentage = 0.04;
+    if (item.reviewRating === 4) {
+      item.bonusPercentage = 0.06;
     }
-    else if(item.reviewRating === 4){
-      bonusPercentage = 0.06;
+    if (item.reviewRating === 5) {
+      item.bonusPercentage = 0.1;
     }
-    else if(item.reviewRating === 5){
-      bonusPercentage = 0.1;
+    if (item.employeeNumber.length === 4) {
+      item.bonusPercentage += 0.05;
     }
+    if (item.annualSalary > 65000 ){
+      item.bonusPercentage *= .99;
+    }
+    if (item.bonusPercentage >= maxBonus)  {
+      item.bonusPercentage = .13;
+    }
+    if (item.bonusPercentage < 0) {
+      item.bonusPercentage = 0;
+    }
+  item.totalBonus = "$" + (item.annualSalary * item.bonusPercentage);
+  } return array
+}
 
-    else if(item.employeeNumber.length === 4 ){
-      bonusPercentage +=0.05 
-     }
-      
-    
 
 
-calculateAndAddBonusInformation(employees);
+console.log(calculateAndAddBonusInformation(employees));
+console.log(employees);
