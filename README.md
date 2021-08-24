@@ -68,3 +68,17 @@ NOTE: You may abstract out this bonus calculation into a second function if you 
 - Put the output on the DOM (visually on the page).
 - Make the app run only after the user clicks on a button on the page
 - Then style the output, making it visually appealing.
+ 
+ // rating < 2 : no bonus
+ // rating = 3 : 4% bonus
+ // rating = 4 : 6% bonus
+ // rating = 5 : 10% bonus
+ // employeeNumber.length = 4 : (rating bonus) + (5% * salary)
+ // income > 65,000 : bonus = (bonus) - (bonus * .01)
+ // maxBonus = 13%
+ // min bonus = 0%
+
+ * use each employee object as the input to the function described below.
+* `console.log` the results of each iteration.
+
+* Add `bonusPercentage`, `totalCompensation`, `totalBonus` to * employee array

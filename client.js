@@ -41,3 +41,56 @@ const employees = [
 // Ask questions when you don't.
 
 console.log( employees );
+
+
+/**
+ * Write a function to loop through employee array and calculate bonus, return calculated values
+ * 
+ * @param employees
+ * @returns `bonusPercentage`, `totalCompensation`, `totalBonus` to employee array
+ * 
+ *  // rating < 2 : no bonus
+ // rating = 3 : 4% bonus
+ // rating = 4 : 6% bonus
+ // rating = 5 : 10% bonus
+ // employeeNumber.length = 4 : (rating bonus) + (5% * salary)
+ // bonusPercentage += .05
+ // income > 65,000 : bonus = (bonus) - (bonus * .01)
+ // maxBonus = 13%
+ // min bonus = 0%
+
+ * use each employee object as the input to the function described below.
+* `console.log` the results of each iteration.
+
+* Add `bonusPercentage`, `totalCompensation`, `totalBonus` to * employee array
+
+ */
+ 
+function calculateAndAddBonusInformation( array ){
+  for (let item of array) {
+    let bonusPercentage = item.bonusPercentage;
+    let totalCompensation = item.totalCompensation;
+    let totalBonus = item.totalBonus
+    console.log(item.employeeNumber);
+    }
+    if (item.reviewRating < 2){
+      bonusPercentage = 0;
+    }
+    else if (item.reviewRating === 3){
+      bonusPercentage = 0.04;
+    }
+    else if(item.reviewRating === 4){
+      bonusPercentage = 0.06;
+    }
+    else if(item.reviewRating === 5){
+      bonusPercentage = 0.1;
+    }
+
+    else if(item.employeeNumber.length === 4 ){
+      bonusPercentage +=0.05 
+     }
+      
+    
+
+
+calculateAndAddBonusInformation(employees);
