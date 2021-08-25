@@ -64,16 +64,22 @@ function processEmployeeBonus(employeeInput) {
   } else if (employeeInput.reviewRating === 5) {
     employeeInput.bonusPercentage = 0.10;
   }
-
   if (employeeInput.employeeNumber.length === 4) {
     employeeInput.bonusPercentage += 0.05;
   }
   if (employeeInput.annualSalary > 65000) {
     employeeInput.bonusPercentage -= .01;
   }
+  if (employeeInput.bonusPercentage > 0.13) {
+    employeeInput.bonusPercentage = 0.13;
+  } 
+  employeeInput.totalBonus = employeeInput.annualSalary * employeeInput.bonusPercentage;
+  employeeInput.totalCompensation = parseInt(employeeInput.annualSalary) + parseInt(employeeInput.totalBonus);
+  // for rounding errors can use tofixed...employeeInput.bonusPercentage.toFixed(2)
   return employeeInput;
 }
 console.log(processEmployeeBonus(employees[2]));
+console.log(processEmployeeBonus(employees[0]));
 
   // 3 - Calculate the bonus
   // 4 - Move that calculation into a separate funciton
