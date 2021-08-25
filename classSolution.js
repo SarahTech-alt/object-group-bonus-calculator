@@ -87,7 +87,7 @@ function calculateBonusPercent(employeeNumber, salary, rating) {
     bonusPercentage = 0.10;
   }
   if (employeeNumber.length === 4) {
-    employeeInput.bonusPercentage += 0.05;
+    bonusPercentage += 0.05;
   }
   if (salary > 65000) {
     bonusPercentage -= .01;
