@@ -54,9 +54,27 @@ for (let employee of employees) {
  * @return {object} Object with bonus information
  */
 function processEmployeeBonus(employeeInput) {
-  employeeInput.bonusPercentage = 200;
+  employeeInput.bonusPercentage = 0;
+  if (employeeInput.reviewRating <= 2) {
+    employeeInput.bonusPercentage = 0.0;
+  } else if (employeeInput.reviewRating === 3) {
+    employeeInput.bonusPercentage = 0.04;
+  } else if (employeeInput.reviewRating === 4) {
+    employeeInput.bonusPercentage = 0.06;
+  } else if (employeeInput.reviewRating === 5) {
+    employeeInput.bonusPercentage = 0.10;
+  }
+
+  if (employeeInput.employeeNumber.length === 4) {
+    employeeInput.bonusPercentage += 0.05;
+  }
+  if (employeeInput.annualSalary > 65000) {
+    employeeInput.bonusPercentage -= .01;
+  }
   return employeeInput;
 }
+console.log(processEmployeeBonus(employees[2]));
+
   // 3 - Calculate the bonus
   // 4 - Move that calculation into a separate funciton
   // 5 - Write some tests
