@@ -49,7 +49,7 @@ for (let employee of employees) {
 
 // 2 - Create a function that takes in an object and returns and object
 /**
- * 
+ * param   type       name       description
  * @param {object} employeeInput Employee to process
  * @return {object} Object with bonus information
  */
@@ -98,7 +98,7 @@ function calculateBonusPercent(employeeNumber, salary, rating) {
   return bonusPercentage;
 }
 
-console.log(calculateBonusPercent('111', '65134', 4));
+console.log(processEmployeeBonus(employees[1]));
 function checkBonusRange() {
 
 }
